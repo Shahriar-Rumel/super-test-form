@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { Icon } from '@iconify/react';
 
 import { fetchCountriesData } from '../../../api/countryService';
 import { Country } from '../../../types/country';
@@ -6,6 +7,7 @@ import formModel from '../../../shared/model/formModel';
 
 import Input from '../../../shared/components/Input';
 import Select from '../../../shared/components/Select';
+import Loader from '../../../shared/components/Loader';
 
 const {
   formField: { username, email, phone, country }
@@ -14,6 +16,8 @@ const {
 const InitialForm: React.FC = () => {
   const [countries, setCountries] = useState<Country[]>([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<String | null>();
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -22,6 +26,9 @@ const InitialForm: React.FC = () => {
         setLoading(false);
       } catch (error) {
         console.error(error);
+        setError(
+          'An error occurred while fetching data. Please try again later.'
+        );
         setLoading(false);
       }
     };
@@ -29,7 +36,7 @@ const InitialForm: React.FC = () => {
     fetchData();
   }, []);
 
-  if (loading) return <h1>Loading</h1>;
+  if (loading) return <Loader />;
 
   return (
     <>
