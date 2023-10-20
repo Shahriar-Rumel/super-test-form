@@ -1,17 +1,36 @@
-import Input from '../../../shared/components/Input';
+import { useEffect, useState } from 'react';
+
+import { fetchCountriesData } from '../../../api/countryService';
+import { Country } from '../../../types/country';
 import formModel from '../../../shared/model/formModel';
+
+import Input from '../../../shared/components/Input';
 import Select from '../../../shared/components/Select';
 
 const {
   formField: { username, email, phone, country }
 } = formModel;
 
-const countries = [
-  { id: 'BD', name: 'Bangladesh' },
-  { id: 'USA', name: 'United States' }
-];
+const InitialForm: React.FC = () => {
+  const [countries, setCountries] = useState<Country[]>([]);
+  const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const fetchedCountries = await fetchCountriesData();
+        setCountries(fetchedCountries);
+        setLoading(false);
+      } catch (error) {
+        console.error(error);
+        setLoading(false);
+      }
+    };
 
-const InitialForm = () => {
+    fetchData();
+  }, []);
+
+  if (loading) return <h1>Loading</h1>;
+
   return (
     <>
       <Input
