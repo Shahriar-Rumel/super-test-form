@@ -1,6 +1,6 @@
 import React from 'react';
 import { useFormikContext } from 'formik';
-import { FormValues, ReviewItemProps } from '../../../shared/data/review';
+import { FormValues, ReviewItemProps } from '../../../types/review';
 
 const ReviewItem: React.FC<ReviewItemProps> = ({ label, value }) => {
   return (

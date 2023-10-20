@@ -38,6 +38,8 @@ const InitialForm: React.FC = () => {
 
   if (loading) return <Loader />;
 
+  if (error) return <p>{error}</p>;
+
   return (
     <>
       <Input
