@@ -1,8 +1,13 @@
+import Header from '../../shared/components/Header';
+
 const MainLayout = ({ children }: any) => {
   return (
-    <main className="mx-auto">
-      <>{children}</>
-    </main>
+    <>
+      <Header />
+      <main className="mx-auto">
+        <>{children}</>
+      </main>
+    </>
   );
 };
 
