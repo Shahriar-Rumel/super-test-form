@@ -6,9 +6,9 @@ const Aside = () => {
   const { currentStep } = useContext(StepContext);
 
   const getColor = (step: number) => {
-    if (currentStep > step) return 'bg-slate-500';
-    if (currentStep === step) return 'bg-violet-600';
-    return 'bg-violet-300';
+    if (currentStep > step) return 'bg-primaryLight';
+    if (currentStep === step) return 'bg-primary';
+    return 'bg-[#C9C5E8]';
   };
 
   return (
