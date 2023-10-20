@@ -16,10 +16,8 @@ const Aside = () => {
       <ul>
         {steps.map((step) => (
           <li key={step.id} className="flex items-center gap-2 mt-4">
-            <div
-              className={`bg-violet-500 h-[12px] w-[12px] ${getColor(step.id)}`}
-            ></div>
-            <p className="text-[14px] text-slate-600 ">{step.label}</p>
+            <div className={`h-[12px] w-[12px] ${getColor(step.id)}`}></div>
+            <p className="text-[14px] text-slate-600">{step.label}</p>
           </li>
         ))}
       </ul>

@@ -1,4 +1,11 @@
-import { ErrorMessage, Field, FieldProps } from 'formik';
+import { Icon } from '@iconify/react';
+import {
+  ErrorMessage,
+  Field,
+  FieldProps,
+  useField,
+  useFormikContext
+} from 'formik';
 
 interface InputProps {
   label: string;
@@ -8,6 +15,8 @@ interface InputProps {
 }
 
 const Input: React.FC<InputProps> = ({ label, name, type, placeholder }) => {
+  const [field, meta] = useField<boolean>(name);
+
   return (
     <>
       <div className="mb-6">
@@ -19,16 +28,25 @@ const Input: React.FC<InputProps> = ({ label, name, type, placeholder }) => {
         </label>
         <Field name={name}>
           {({ field }: FieldProps) => (
-            <input
-              type={type ? type : 'text'}
-              id={name}
-              {...field}
-              className="px-2 mt-2 text-primaryDark placeholder-primaryExtraLight text-sm outline-none focus:ring-brand focus:border-orange-500 w-full h-[40px]"
-              placeholder={placeholder ? placeholder : ''}
-            />
+            <div className="relative">
+              <input
+                type={type ? type : 'text'}
+                id={name}
+                {...field}
+                className="px-2 mt-2 bg-white text-primaryDark placeholder-primaryExtraLight text-sm outline-none focus:ring-brand focus:border-orange-500 w-full h-[40px]"
+                placeholder={placeholder ? placeholder : ''}
+              />
+              {meta.touched && !meta.value && (
+                <Icon
+                  icon="bxs:error-alt"
+                  className="absolute right-3 text-red-500 top-5"
+                />
+              )}
+            </div>
           )}
         </Field>
-        <p className="mt-2 text-sm text-red font-medium">
+
+        <p className="mt-2 text-sm text-red-300 font-regular">
           <ErrorMessage name={name} />
         </p>
       </div>

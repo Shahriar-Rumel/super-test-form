@@ -1,5 +1,7 @@
+import { Steps } from '../enums/steps';
+
 export const steps = [
-  { id: 0, label: 'Inital Info' },
-  { id: 1, label: 'Password Screen' },
-  { id: 2, label: 'Review' }
+  { id: Steps.INITIAL_INFO, label: 'Inital Info' },
+  { id: Steps.PASSWORD_SCREEN, label: 'Password Screen' },
+  { id: Steps.REVIEW, label: 'Review' }
 ];
