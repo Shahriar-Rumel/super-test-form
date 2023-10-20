@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Listbox } from '@headlessui/react';
 import { Icon } from '@iconify/react';
-import { useField } from 'formik';
+import { useField, ErrorMessage } from 'formik';
 
 interface SelectProps {
   label: string;
@@ -10,8 +10,16 @@ interface SelectProps {
 }
 
 const Select: React.FC<SelectProps> = ({ label, name, options }) => {
-  const [, , helpers] = useField<String>(name);
-  const [selectedPerson, setSelectedPerson] = useState(options[0]);
+  const [field, , helpers] = useField<String>(name);
+  const [selectedOption, setSelectedOption] = useState<{
+    id: string;
+    name: string;
+  } | null>(null);
+
+  const handleOptionChange = (newSelectedOption: any) => {
+    setSelectedOption(newSelectedOption);
+    helpers.setValue(newSelectedOption ? newSelectedOption.name : '');
+  };
 
   return (
     <div className="relative mb-6">
@@ -21,19 +29,13 @@ const Select: React.FC<SelectProps> = ({ label, name, options }) => {
       >
         {label}
       </label>
-      <Listbox
-        value={selectedPerson}
-        onChange={(newSelectedPerson) => {
-          setSelectedPerson(newSelectedPerson);
-          helpers.setValue(selectedPerson.name);
-        }}
-      >
+      <Listbox value={selectedOption} onChange={handleOptionChange}>
         <Listbox.Button
           className={
             'px-2 mt-2 bg-white flex justify-between items-center text-left text-primaryDark placeholder-primaryExtraLight text-sm outline-none focus:ring-brand focus:border-orange-500 w-full h-[40px]'
           }
         >
-          {selectedPerson.name}{' '}
+          {selectedOption ? selectedOption.name : 'Select country'}
           <Icon icon="grommet-icons:form-down" className="text-[18px]" />
         </Listbox.Button>
         <Listbox.Options className="absolute top-[80px] h-[200px] overflow-y-scroll bg-white w-[100%]">
@@ -62,6 +64,9 @@ const Select: React.FC<SelectProps> = ({ label, name, options }) => {
           ))}
         </Listbox.Options>
       </Listbox>
+      <p className="mt-2 text-sm text-red-300 font-regular">
+        <ErrorMessage name={name} />
+      </p>
     </div>
   );
 };
