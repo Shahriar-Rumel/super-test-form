@@ -59,6 +59,7 @@ const Home = () => {
   };
 
   const handleSubmit = (values: any, { setSubmitting }: any) => {
+    // event.preventDefault();
     if (currentStep === Steps.REVIEW) submitForm(values, setSubmitting);
     else {
       setCurrentStep((prev) => prev + 1);
@@ -81,6 +82,7 @@ const Home = () => {
             validationSchema={currentValidationSchema}
             onSubmit={handleSubmit}
             validate={handleValidation}
+            enableReinitialize={true}
           >
             {({ isSubmitting }) => (
               <Form>
