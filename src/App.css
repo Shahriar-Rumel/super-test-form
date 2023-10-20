@@ -9,4 +9,7 @@ body {
 body {
   background-color: #eaeaea;
   background-image: url('/public/assets/bg.png');
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
 }
