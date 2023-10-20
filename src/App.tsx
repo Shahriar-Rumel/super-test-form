@@ -1,20 +1,23 @@
 import { Suspense, useState } from 'react';
 import './App.css';
 import Router from './routes';
-import { HeaderContext } from './modules/hooks/HeaderContext';
+
+import { Steps } from './modules/shared/enums/steps';
+import { StepContext } from './modules/hooks/StepContext';
 
 function App() {
-  const [page, setPage] = useState('Initial Info');
+  const [currentStep, setCurrentStep] = useState(Steps.INITIAL_INFO);
 
-  const contextValue = {
-    page,
-    setPage
+  const stepContextValue = {
+    currentStep,
+    setCurrentStep
   };
+
   return (
     <Suspense fallback={<h1>Loading</h1>}>
-      <HeaderContext.Provider value={contextValue}>
+      <StepContext.Provider value={stepContextValue}>
         <Router />
-      </HeaderContext.Provider>
+      </StepContext.Provider>
     </Suspense>
   );
 }

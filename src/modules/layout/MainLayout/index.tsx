@@ -1,12 +1,12 @@
+import Aside from '../../shared/components/Aside';
 import Header from '../../shared/components/Header';
 
 const MainLayout = ({ children }: any) => {
   return (
     <>
       <Header />
-      <main className="mx-auto">
-        <>{children}</>
-      </main>
+      <Aside />
+      <main className="mx-auto">{children}</main>
     </>
   );
 };
