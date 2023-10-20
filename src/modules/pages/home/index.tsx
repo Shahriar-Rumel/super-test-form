@@ -67,13 +67,9 @@ const Home = () => {
   };
 
   const getButtonContent = (isSubmitting: boolean) => {
-    return isSubmitting ? (
-      <Icon icon="svg-spinners:90-ring-with-bg" />
-    ) : currentStep === Steps.REVIEW ? (
-      'Complete'
-    ) : (
-      'Continue'
-    );
+    if (isSubmitting) return <Icon icon="svg-spinners:90-ring-with-bg" />;
+    if (currentStep === Steps.REVIEW) return 'Complete';
+    return 'Continue';
   };
 
   return (

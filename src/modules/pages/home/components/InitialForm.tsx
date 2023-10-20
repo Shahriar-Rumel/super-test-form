@@ -6,6 +6,11 @@ const {
   formField: { username, email, phone, country }
 } = formModel;
 
+const countries = [
+  { id: 'BD', name: 'Bangladesh' },
+  { id: 'USA', name: 'United States' }
+];
+
 const InitialForm = () => {
   return (
     <>
@@ -27,7 +32,7 @@ const InitialForm = () => {
         type="text"
         placeholder={phone.placeholder}
       />
-      <Select name={country.name} label={country.label} />
+      <Select name={country.name} label={country.label} options={countries} />
     </>
   );
 };
