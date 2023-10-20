@@ -25,24 +25,26 @@ const Select = ({ label, name }: SelectProps) => {
       <Listbox value={selectedPerson} onChange={setSelectedPerson}>
         <Listbox.Button
           className={
-            'px-2 mt-2 bg-white text-left text-primaryDark placeholder-primaryExtraLight text-sm outline-none focus:ring-brand focus:border-orange-500 w-full h-[40px]'
+            'px-2 mt-2 bg-white flex justify-between items-center text-left text-primaryDark placeholder-primaryExtraLight text-sm outline-none focus:ring-brand focus:border-orange-500 w-full h-[40px]'
           }
         >
-          {selectedPerson.name}
+          {selectedPerson.name}{' '}
+          <Icon icon="grommet-icons:form-down" className="text-[18px]" />
         </Listbox.Button>
         <Listbox.Options className="absolute top-[80px] bg-white w-[100%]">
           {countries.map((country, index) => (
             <Listbox.Option
               key={country.id}
               value={country}
-              className={`cursor-pointer hover:bg-primary hover:text-white py-2 px-4 ${
+              className={`cursor-pointer hover:bg-primary hover:text-white ${
                 index % 2 === 1 && 'bg-primaryExtraLight bg-opacity-10'
               } `}
             >
               {({ selected }) => (
                 <p
-                  className={`flex gap-4 items-center ${
-                    selected && 'font-semibold text-primaryDark'
+                  className={`flex gap-4 items-center py-2 px-4 ${
+                    selected &&
+                    'font-semibold  text-primaryDark hover:text-white'
                   }`}
                 >
                   {country.name}{' '}

@@ -24,7 +24,7 @@ export const validationSchema = [
       .min(8, password.minMsg)
       .max(16, password.maxMsg),
     [repeatPassword.name]: Yup.string()
-      .oneOf([Yup.ref(password.name)], repeatPassword.matchMsg)
+      .oneOf([Yup.ref(password.name), undefined], repeatPassword.matchMsg)
       .required(repeatPassword.requiredMsg)
   })
 ];

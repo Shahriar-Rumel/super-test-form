@@ -11,5 +11,5 @@ export default {
   [country.name]: '',
   [password.name]: '',
   [country.name]: '',
-  [repeatPassword.name]: false
+  [repeatPassword.name]: ''
 };

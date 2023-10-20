@@ -36,11 +36,11 @@ export default {
       maxMsg: 'Password must be at most 16 characters'
     },
     repeatPassword: {
-      name: 'password',
-      label: 'Password',
-      placeholder: 'Repeat your username',
+      name: 'repeatPassword',
+      label: 'Repeat Password',
+      placeholder: 'Repeat your password',
       requiredMsg: 'Repeat Password is required',
-      matchMsg: 'Passwords must matchs'
+      matchMsg: 'Passwords must match'
     }
   }
 };

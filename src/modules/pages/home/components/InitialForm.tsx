@@ -1,4 +1,3 @@
-import React from 'react';
 import Input from '../../../shared/components/Input';
 import formModel from '../../../shared/model/formModel';
 import Select from '../../../shared/components/Select';
