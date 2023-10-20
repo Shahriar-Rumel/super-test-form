@@ -5,7 +5,7 @@ const {
   formField: { password, repeatPassword }
 } = formModel;
 
-const PasswordForm = () => {
+const PasswordForm: React.FC = () => {
   return (
     <>
       <Input

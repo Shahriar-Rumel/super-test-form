@@ -2,7 +2,7 @@ import { useContext } from 'react';
 import { StepContext } from '../../hooks/StepContext';
 import { steps } from '../data/steps';
 
-const Header = () => {
+const Header: React.FC = () => {
   const { currentStep } = useContext(StepContext);
   return (
     <header className="flex pt-[50px] flex-col items-center justify-center">
