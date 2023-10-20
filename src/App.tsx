@@ -4,6 +4,7 @@ import Router from './routes';
 
 import { Steps } from './modules/shared/enums/steps';
 import { StepContext } from './modules/hooks/StepContext';
+import Loader from './modules/shared/components/Loader';
 
 function App() {
   const [currentStep, setCurrentStep] = useState(Steps.INITIAL_INFO);
@@ -14,7 +15,7 @@ function App() {
   };
 
   return (
-    <Suspense fallback={<h1>Loading</h1>}>
+    <Suspense fallback={<Loader />}>
       <StepContext.Provider value={stepContextValue}>
         <Router />
       </StepContext.Provider>

@@ -9,7 +9,7 @@ interface SelectProps {
   options: { id: string; name: string }[];
 }
 
-const Select = ({ label, name, options }: SelectProps) => {
+const Select: React.FC<SelectProps> = ({ label, name, options }) => {
   const [, , helpers] = useField<String>(name);
   const [selectedPerson, setSelectedPerson] = useState(options[0]);
 
@@ -36,7 +36,7 @@ const Select = ({ label, name, options }: SelectProps) => {
           {selectedPerson.name}{' '}
           <Icon icon="grommet-icons:form-down" className="text-[18px]" />
         </Listbox.Button>
-        <Listbox.Options className="absolute top-[80px] bg-white w-[100%]">
+        <Listbox.Options className="absolute top-[80px] h-[200px] overflow-y-scroll bg-white w-[100%]">
           {options.map((option, index) => (
             <Listbox.Option
               key={option.id}

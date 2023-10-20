@@ -29,7 +29,7 @@ export default {
     },
     password: {
       name: 'password',
-      label: 'Password',
+      label: 'Password*',
       placeholder: 'Enter your password',
       requiredMsg: 'Password is required',
       minMsg: 'Password must be at least 8 characters',
@@ -37,7 +37,7 @@ export default {
     },
     repeatPassword: {
       name: 'repeatPassword',
-      label: 'Repeat Password',
+      label: 'Repeat Password*',
       placeholder: 'Repeat your password',
       requiredMsg: 'Repeat Password is required',
       matchMsg: 'Passwords must match'
