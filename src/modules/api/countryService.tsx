@@ -5,7 +5,7 @@ export const fetchCountriesData = async (): Promise<Country[]> => {
     const response = await fetch('https://restcountries.com/v3.1/all');
 
     if (!response.ok) {
-      throw new Error('Failed to fetch countries data');
+      throw new Error('Error fetching countries data');
     }
 
     const countriesJson: any[] = await response.json();
@@ -18,7 +18,7 @@ export const fetchCountriesData = async (): Promise<Country[]> => {
       .sort((a: Country, b: Country) => a.name.localeCompare(b.name));
 
     return countries;
-  } catch (error) {
+  } catch (error: any) {
     throw new Error(`Error fetching countries data: ${error.message}`);
   }
 };

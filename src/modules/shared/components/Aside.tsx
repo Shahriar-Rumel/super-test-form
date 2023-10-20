@@ -2,8 +2,8 @@ import React, { useContext } from 'react';
 import { StepContext } from '../../hooks/StepContext';
 import { steps } from '../data/steps';
 
-const Aside = () => {
-  const { currentStep } = useContext(StepContext);
+const Aside: React.FC = () => {
+  const { currentStep, setCurrentStep } = useContext(StepContext);
 
   const getColor = (step: number) => {
     if (currentStep > step) return 'bg-primaryLight';

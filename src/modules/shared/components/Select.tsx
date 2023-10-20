@@ -9,7 +9,7 @@ interface SelectProps {
   options: { id: string; name: string }[];
 }
 
-const Select = ({ label, name, options }: SelectProps) => {
+const Select: React.FC<SelectProps> = ({ label, name, options }) => {
   const [, , helpers] = useField<String>(name);
   const [selectedPerson, setSelectedPerson] = useState(options[0]);
 
