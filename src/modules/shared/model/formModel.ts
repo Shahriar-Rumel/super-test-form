@@ -3,6 +3,7 @@ export default {
     username: {
       name: 'username',
       label: 'Username*',
+      placeholder: 'Enter your username',
       requiredMsg: 'Username is required',
       minMsg: 'Username must be at least 4 characters',
       maxMsg: 'Username must be at most 12 characters'
@@ -10,12 +11,14 @@ export default {
     email: {
       name: 'email',
       label: 'Email*',
+      placeholder: 'Enter your email',
       requiredMsg: 'Email is required',
       invalidMsg: 'Invalid email address'
     },
     phone: {
       name: 'phone',
       label: 'Phone*',
+      placeholder: 'Enter your phone',
       requiredMsg: 'Phone number is required',
       matchesMsg: 'Invalid phone number. Please use a valid format.'
     },
@@ -27,6 +30,7 @@ export default {
     password: {
       name: 'password',
       label: 'Password',
+      placeholder: 'Enter your password',
       requiredMsg: 'Password is required',
       minMsg: 'Password must be at least 8 characters',
       maxMsg: 'Password must be at most 16 characters'
@@ -34,6 +38,7 @@ export default {
     repeatPassword: {
       name: 'password',
       label: 'Password',
+      placeholder: 'Repeat your username',
       requiredMsg: 'Repeat Password is required',
       matchMsg: 'Passwords must matchs'
     }

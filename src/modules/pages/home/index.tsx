@@ -5,6 +5,7 @@ import { useContext, useState } from 'react';
 import { StepContext } from '../../hooks/StepContext';
 import { Steps } from '../../shared/enums/steps';
 import { validationSchema } from '../../schemas/validationSchema';
+import InitialForm from './components/InitialForm';
 
 const Home = (props: any) => {
   const { currentStep, setCurrentStep } = useContext(StepContext);
@@ -44,30 +45,7 @@ const Home = (props: any) => {
             validate={handleValidation}
           >
             <Form>
-              <Input
-                label="Username"
-                name="username"
-                type="text"
-                placeholder="Input your username"
-              />
-              <Input
-                label="Email"
-                name="email"
-                type="text"
-                placeholder="Input your email"
-              />
-              <Input
-                label="Phone"
-                name="phone"
-                type="text"
-                placeholder="Enter your phone"
-              />
-              <Input
-                label="Country"
-                name="country"
-                type="text"
-                placeholder="Input your email"
-              />
+              <InitialForm />
               {currentStep < Steps.REVIEW ? (
                 <button
                   onClick={() => {
