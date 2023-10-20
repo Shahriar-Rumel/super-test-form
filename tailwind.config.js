@@ -13,6 +13,12 @@ module.exports = {
         primary: '0px 4px 25px 0px rgba(141, 141, 141, 0.05)',
         secondary: '0px 4px 25px 0px rgba(29, 78, 216, 0.05)'
       },
+      colors: {
+        primary: '#5845DD',
+        primaryLight: '#817CA5',
+        primaryExtraLight: '#C0BCDF',
+        primaryDark: '#413C5F'
+      },
       fontFamily: {
         sans: ['Inter', 'sans-sherif'],
         sherif: ['Montserrat', 'serif'],
