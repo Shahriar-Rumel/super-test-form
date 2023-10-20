@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Listbox } from '@headlessui/react';
 import { Icon } from '@iconify/react';
+import { useField } from 'formik';
 
 const countries = [
   { id: 'BD', name: 'Bangladesh' },
@@ -13,7 +14,9 @@ interface SelectProps {
 }
 
 const Select = ({ label, name }: SelectProps) => {
+  const [, , helpers] = useField<String>(name);
   const [selectedPerson, setSelectedPerson] = useState(countries[0]);
+
   return (
     <div className="relative mb-6">
       <label
@@ -22,7 +25,13 @@ const Select = ({ label, name }: SelectProps) => {
       >
         {label}
       </label>
-      <Listbox value={selectedPerson} onChange={setSelectedPerson}>
+      <Listbox
+        value={selectedPerson}
+        onChange={(newSelectedPerson) => {
+          setSelectedPerson(newSelectedPerson);
+          helpers.setValue(selectedPerson.name);
+        }}
+      >
         <Listbox.Button
           className={
             'px-2 mt-2 bg-white flex justify-between items-center text-left text-primaryDark placeholder-primaryExtraLight text-sm outline-none focus:ring-brand focus:border-orange-500 w-full h-[40px]'

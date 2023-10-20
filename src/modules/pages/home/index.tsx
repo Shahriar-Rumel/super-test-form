@@ -26,9 +26,10 @@ const renderStep = (step: number) => {
 };
 
 const getButtonStyle = (isStepValid: boolean) => {
-  return isStepValid
+  const buttonStatus = isStepValid
     ? 'bg-white text-primaryDark'
     : 'bg-[#A39FC1] text-[#8B85B1]';
+  return `${buttonStatus} h-[60px] text-[24px] flex justify-center items-center gap-4 font-medium w-[100%] rounded-md tracking-tight h-[60px]`;
 };
 
 const Home = () => {
@@ -51,7 +52,8 @@ const Home = () => {
 
   const submitForm = (values: any, setSubmitting: any) => {
     setTimeout(() => {
-      alert(JSON.stringify(values, null, 2));
+      // alert(JSON.stringify(values, null, 2));
+      alert('Super Test Form Submitted Successfully!');
       setSubmitting(false);
     }, 1000);
   };
@@ -62,6 +64,16 @@ const Home = () => {
       setCurrentStep((prev) => prev + 1);
       setSubmitting(false);
     }
+  };
+
+  const getButtonContent = (isSubmitting: boolean) => {
+    return isSubmitting ? (
+      <Icon icon="svg-spinners:90-ring-with-bg" />
+    ) : currentStep === Steps.REVIEW ? (
+      'Complete'
+    ) : (
+      'Continue'
+    );
   };
 
   return (
@@ -80,17 +92,9 @@ const Home = () => {
                 <button
                   type="submit"
                   disabled={!isStepValid || isSubmitting}
-                  className={`${getButtonStyle(
-                    isStepValid
-                  )} h-[60px] text-[24px] flex justify-center items-center gap-4 font-medium w-[100%] rounded-md tracking-tight h-[60px]`}
+                  className={getButtonStyle(isStepValid)}
                 >
-                  {isSubmitting ? (
-                    <Icon icon="svg-spinners:90-ring-with-bg" />
-                  ) : currentStep === Steps.REVIEW ? (
-                    'Complete'
-                  ) : (
-                    'Continue'
-                  )}
+                  {getButtonContent(isSubmitting)}
                 </button>
               </Form>
             )}

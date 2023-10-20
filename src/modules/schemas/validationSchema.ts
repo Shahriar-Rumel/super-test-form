@@ -16,7 +16,8 @@ export const validationSchema = [
       .email(email.invalidMsg),
     [phone.name]: Yup.string()
       .required(phone.requiredMsg)
-      .matches(/^\+?\d{1,4}?\s?\d{10}$/, phone.matchesMsg)
+      .matches(/^\+?\d{1,4}?\s?\d{10}$/, phone.matchesMsg),
+    [country.name]: Yup.string().required(country.requiredMsg)
   }),
   Yup.object().shape({
     [password.name]: Yup.string()

@@ -10,7 +10,7 @@ interface InputProps {
 
 const Input: React.FC<InputProps> = ({ label, name, type, placeholder }) => {
   const [, meta] = useField<boolean>(name);
-  console.log(meta);
+
   return (
     <>
       <div className="mb-6">
