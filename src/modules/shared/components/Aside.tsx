@@ -8,11 +8,11 @@ const Aside = () => {
   const getColor = (step: number) => {
     if (currentStep > step) return 'bg-primaryLight';
     if (currentStep === step) return 'bg-primary';
-    return 'bg-[#C9C5E8]';
+    return 'bg-primaryExtraLight';
   };
 
   return (
-    <aside className="fixed left-[50px] right-0 top-[250px]">
+    <aside className="fixed left-[50px] top-[250px]">
       <ul>
         {steps.map((step) => (
           <li key={step.id} className="flex items-center gap-2 mt-4">
